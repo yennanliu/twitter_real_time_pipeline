@@ -1,7 +1,18 @@
 # twitter_real_time_pipeline
-* dev 
+* Dev 
 * Collect twitter event data via streaming API and digest/preprocess the data 
 
+# Quick Start
+
+```bash 
+
+$ git clone https://github.com/yennanliu/twitter_real_time_pipeline.git
+$ cd ~ && cd twitter_real_time_pipeline
+$ export APP_KEY=<your_APP_KEY> 
+$ export APP_SECRET=<your_APP_SECRET>
+$ python test.py 
+
+```
 
 
 # ref 
