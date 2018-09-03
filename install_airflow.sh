@@ -1,5 +1,4 @@
-
-
+#!/usr/bin/env bash
 
 
 # steps 
@@ -14,7 +13,7 @@ export SLUGIFY_USES_TEXT_UNIDECODE=yes
 # step 3) 
 # install from pypi using pip
 pip install apache-airflow
-
+pip install "apache-airflow[crypto, slack]"
 # step 4) 
 # initialize the database
 airflow initdb
