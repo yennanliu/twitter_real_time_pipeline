@@ -1,5 +1,5 @@
 # twitter_real_time_pipeline
-* Dev 
+
 * Collect twitter event data via streaming API and digest/preprocess the data 
 * https://developer.twitter.com/
 
@@ -19,6 +19,9 @@ $ python test.py
 export AIRFLOW_HOME="$(pwd)"
 # initialize db 
 airflow initdb
+### make sure all jobs files under /dags are without syntax errors ### 
+# not load example dags 
+export load_examples=False
 # start the web server, default port is 8080
 airflow webserver -p 8080
 # start the scheduler
