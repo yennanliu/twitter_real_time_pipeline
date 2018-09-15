@@ -6,7 +6,7 @@
 # Quick Start
 
 ```bash 
-# run the test script 
+# ----------- run the test script  ----------- # 
 $ git clone https://github.com/yennanliu/twitter_real_time_pipeline.git
 $ cd ~ && cd twitter_real_time_pipeline
 # get the APP_KEY, APP_SECRET  here :  https://developer.twitter.com/
@@ -16,20 +16,23 @@ $ python test.py
 ``` 
 
 ```bash 
-# run the etl script (airflow)
-export AIRFLOW_HOME="$(pwd)"
+# ----------- Run via etl script (airflow)----------- # 
+# set up airflow route 
+$ export AIRFLOW_HOME="$(pwd)"
+# set up python route 
+$ export PYTHONPATH=$(pwd) 
 # initialize db 
-airflow initdb
+$ airflow initdb
 ### make sure all jobs files under /dags are without syntax errors ### 
 # not load example dags 
-export load_examples=False
+$ export load_examples=False
 # fix  ValueError: unknown locale: UTF-8 in Python (mac OSX)
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-# start the web server, default port is 8080
-airflow webserver -p 8080
-# start the scheduler
-airflow scheduler
+$ export LC_ALL=en_US.UTF-8
+$ export LANG=en_US.UTF-8
+# start the web server, default port is 8080 (run this in 1 terminal)
+$ airflow webserver -p 8080
+# start the scheduler (run this in another terminal)
+$ airflow scheduler
 
 ```
 
