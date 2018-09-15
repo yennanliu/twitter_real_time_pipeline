@@ -4,6 +4,7 @@
 from twython import Twython
 import time
 import os 
+import pandas as pd 
 
 try:
     APP_KEY = os.environ['APP_KEY']
@@ -40,29 +41,35 @@ def main():
     follower_count = [tweet['user']['followers_count'] for tweet in tweets]
     location = [tweet['user']['location'] for tweet in tweets]
     lang = [tweet['lang'] for tweet in tweets]
-    print (tweets[0])
-    return tweets
+    #print (tweets[0])
+    df = pd.DataFrame(tweets)
+    print (df.head(5))
+    return df 
 
 
 
 # -----------------------------------------
 
 
+def update2sqlite():
+	try:
+		df = main()
+		df.to_sql('twitter_data',if_exists='append',con='sqlite:///twitter.db')
+		print ('update to DB ok')
+	except:
+		print ('dump DB failed')
+
+
+
 class sqlite_IO:
-	def __init__(self, df, *args, **kwargs):
-		self.df = df
+	def __init__(self, *args, **kwargs):
+		self.df = main()
 		self.con  = 'sqlite:///twitter.db'
+
 	def test(self):
 		print (self.con)
 
 	def dumb2db(self):
-		try:
-			self.df.to_sql('twitter_data',if_exists='fail',con=self.con)
-			print ('dump to DB ok')
-		except:
-			print ('dump DB failed')
-
-	def update2db(self):
 		try:
 			df = self.df 
 			df.to_sql('twitter_data',if_exists='append',con=self.con)
