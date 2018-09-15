@@ -5,6 +5,8 @@ from twython import Twython
 import time
 import os 
 import pandas as pd 
+from sqlalchemy import create_engine
+
 
 try:
     APP_KEY = os.environ['APP_KEY']
@@ -43,8 +45,10 @@ def main():
     lang = [tweet['lang'] for tweet in tweets]
     #print (tweets[0])
     df = pd.DataFrame(tweets)
-    print (df.head(5))
-    return df 
+    # only get part of data here, for testing dump to sqlite step 
+    df_ = df[['contributors','created_at','text','retweet_count']]
+    print (df_.head(5))
+    return df_ 
 
 
 
@@ -53,8 +57,9 @@ def main():
 
 def update2sqlite():
 	try:
-		df = main()
-		df.to_sql('twitter_data',if_exists='append',con='sqlite:///twitter.db')
+		df_ = main()
+		engine = create_engine('sqlite:///twitter_data.db', echo=False)
+		df_.to_sql('twitter_data',if_exists='append',con=engine)
 		print ('update to DB ok')
 	except:
 		print ('dump DB failed')
