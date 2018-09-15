@@ -6,7 +6,7 @@
 # Quick Start
 
 ```bash 
-# ----------- run the test script  ----------- # 
+# ----------- Run the test script  ----------- # 
 $ git clone https://github.com/yennanliu/twitter_real_time_pipeline.git
 $ cd ~ && cd twitter_real_time_pipeline
 # get the APP_KEY, APP_SECRET  here :  https://developer.twitter.com/
