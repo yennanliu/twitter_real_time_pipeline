@@ -62,7 +62,7 @@ def main():
 
 
 
-with DAG('etl_app_v3', default_args=args) as dag:
+with DAG('etl_app_dev_V2', default_args=args) as dag:
     superman_task = PythonOperator(
         task_id='main',
         python_callable=main

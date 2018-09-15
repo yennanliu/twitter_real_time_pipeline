@@ -9,7 +9,7 @@ args = {
 }
 
 dag = DAG(
-    dag_id='my_first_dag2', default_args=args,
+    dag_id='my_demo_dag2', default_args=args,
     schedule_interval=None)
 
 def print_context(i):
