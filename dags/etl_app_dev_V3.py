@@ -27,9 +27,14 @@ args = {
 
 
 with DAG('etl_app_dev_V3', default_args=args) as dag:
-    superman_task = PythonOperator(
+    get_twitter_data_task = PythonOperator(
         task_id='main',
         python_callable=main
-    )
+        )
+    save_to_db_task = PythonOperator(
+        task_id='sqlite_IO',
+        python_callable=update2sqlite
+        )
+
 
 
