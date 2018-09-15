@@ -36,5 +36,15 @@ with DAG('etl_app_dev_V3', default_args=args) as dag:
         python_callable=update2sqlite
         )
 
+    # define workflow
+    get_twitter_data_task >>  save_to_db_task
+
+
+
+
+
+
+
+
 
 
