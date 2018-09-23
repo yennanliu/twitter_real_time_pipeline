@@ -3,6 +3,11 @@
 * Collect twitter event data via streaming API and digest/preprocess the data 
 * https://developer.twitter.com/
 
+# Tech
+* Python3, Airflow, Pyspark, twython 
+* SQLite 
+
+
 # Quick Start
 
 ```bash 
@@ -34,6 +39,9 @@ $ airflow webserver -p 8080
 # start the scheduler (run this in another terminal)
 $ airflow scheduler
 
+# the airflow admin UI should be available at 
+# http://localhost:8080/admin/
+
 ```
 
 
@@ -46,10 +54,15 @@ $ airflow scheduler
 	* https://www.datareply.co.uk/blog/2018/5/23/realtime-streaming-data-pipeline-using-google-cloud-platform-and-bokeh
 	* https://github.com/nabeeltariq2/Real-Time-Twitter-AWS-Python
 	* https://www.dataquest.io/blog/streaming-data-python/
+- Python Spark streaming 
+	* https://www.rittmanmead.com/blog/2017/01/getting-started-with-spark-streaming-with-python-and-kafka/
+	* https://medium.com/@kass09/spark-streaming-kafka-in-python-a-test-on-local-machine-edd47814746
+	* https://spark.apache.org/docs/2.2.0/streaming-programming-guide.html
 
 
 
-	
+
+
 
 
 
