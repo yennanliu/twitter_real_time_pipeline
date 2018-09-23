@@ -38,6 +38,24 @@ $ airflow scheduler
 
 
 # ref 
-* https://github.com/uclatommy/tweetfeels
-* https://medium.com/datascape/twitter-real-time-streaming-api-use-with-python-tweet-mining-3b04a52f18d8
+- Twitter API query 
+	* https://github.com/uclatommy/tweetfeels
+	* https://medium.com/datascape/twitter-real-time-streaming-api-use-with-python-tweet-mining-3b04a52f18d8
+- Real-time streaming 
+	* https://nycdatascience.com/blog/student-works/web-scraping/build-near-real-time-twitter-streaming-analytical-pipeline-scratch-using-spark-aws/
+	* https://www.datareply.co.uk/blog/2018/5/23/realtime-streaming-data-pipeline-using-google-cloud-platform-and-bokeh
+	* https://github.com/nabeeltariq2/Real-Time-Twitter-AWS-Python
+	* https://www.dataquest.io/blog/streaming-data-python/
+
+
+
+	
+
+
+
+
+
+
+
+
 
