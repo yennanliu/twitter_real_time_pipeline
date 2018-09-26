@@ -60,7 +60,7 @@ if __name__ == "__main__":
     # Print the first ten elements of each RDD generated in this DStream to the console
     print ('------------- step 4)  -------------')
     wordCounts.pprint()
-    #print ('wordCounts :',  wordCounts)
+    print ('wordCounts :',  wordCounts)
     ssc.start()             # Start the computation
     ssc.awaitTermination()  # Wait for the computation to terminate
 
