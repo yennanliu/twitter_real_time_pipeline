@@ -24,6 +24,7 @@ airflow initdb
 
 # step 5)
 export AIRFLOW_HOME=$(PWD)
+export PYTHONPATH=$(pwd)
 
 # step 6) 
 # start the web server, default port is 8080
