@@ -22,11 +22,14 @@ airflow initdb
 
 ###################### then open the other 2 terminal run step 5) and step 6) commands   ######################
 
-# step 5) 
+# step 5)
+export AIRFLOW_HOME=$(PWD)
+
+# step 6) 
 # start the web server, default port is 8080
 #airflow webserver -p 8080
 
-# step 6) 
+# step 7) 
 # start the scheduler
 #airflow scheduler
 
