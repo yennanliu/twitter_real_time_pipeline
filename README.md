@@ -22,6 +22,10 @@ $ python test.py
 
 ```bash 
 # ----------- Run via etl script (airflow)----------- # 
+$ git clone https://github.com/yennanliu/twitter_real_time_pipeline.git
+$ export APP_KEY=<your_APP_KEY> 
+$ export APP_SECRET=<your_APP_SECRET>
+$ cd ~ && cd twitter_real_time_pipeline
 # set up airflow route 
 $ export AIRFLOW_HOME="$(pwd)"
 # set up python route 
