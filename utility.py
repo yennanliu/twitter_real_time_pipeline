@@ -12,7 +12,7 @@ try:
     APP_KEY = os.environ['APP_KEY']
     APP_SECRET = os.environ['APP_SECRET'] 
 except:
-    print (' No API key , please set up  via : ')
+    print (' No APP_KEY,  APP_SECRET , please set up  via : ')
     print (' https://developer.twitter.com/en/apps')
 
 
