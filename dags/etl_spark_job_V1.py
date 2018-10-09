@@ -44,16 +44,17 @@ def main():
 
 with DAG('etl_spark_job_V1', default_args=args) as dag:
 
-    launch_spark_env_task = BashOperator(
-    	task_id = 'launch_spark_env_task',
-    	bash_command = 'source activate pyspark_ && export SPARK_HOME=/Users/yennanliu/spark && export PATH=$SPARK_HOME/bin:$PATH'
-    )
+    #launch_spark_env_task = BashOperator(
+    #	task_id = 'launch_spark_env_task',
+    #	bash_command = 'source activate pyspark_ && export SPARK_HOME=/Users/yennanliu/spark && export PATH=$SPARK_HOME/bin:$PATH'
+    #)
     spark_task = PythonOperator(
         task_id='spark_task',
         python_callable=main
     )
     #launch_spark_env_task >> spark_task
-    launch_spark_env_task >> spark_task
+    #launch_spark_env_task >> spark_task
+    spark_task
 
 
 
