@@ -27,7 +27,9 @@ def main():
 	conf = SparkConf().setAppName("building a warehouse")
 	sc = SparkContext(conf=conf)
 	sqlCtx = SQLContext(sc)
-	spark_home = os.environ.get('SPARK_HOME', None)
+	#spark_home = os.environ.get('SPARK_HOME', None)
+	spark_home='/Users/yennanliu/spark'
+	print ('spark_home : ', spark_home)
 	text_file = sc.textFile(spark_home + "/README.md")
 	word_counts = text_file \
 	.flatMap(lambda line: line.split()) \
