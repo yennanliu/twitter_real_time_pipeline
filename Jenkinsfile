@@ -4,3 +4,4 @@ git clone https://github.com/yennanliu/twitter_real_time_pipeline || echo 'repo 
 cd twitter_real_time_pipeline
 git branch 
 git status 
+ls -ll 
