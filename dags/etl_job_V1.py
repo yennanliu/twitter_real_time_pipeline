@@ -13,7 +13,7 @@ args = {
     'start_date': datetime.now()
 }
 
-dag = DAG('etl_app_dev_V1', default_args=args)
+dag = DAG('etl_job_V1', default_args=args)
 
 # t1, t2 and t3 are examples of tasks created by instantiating operators
 t1 = BashOperator(

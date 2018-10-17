@@ -26,7 +26,7 @@ args = {
 
 
 
-with DAG('etl_app_dev_V3', default_args=args) as dag:
+with DAG('etl_job_V3', default_args=args) as dag:
     get_twitter_data_task = PythonOperator(
         task_id='main',
         python_callable=main
