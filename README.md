@@ -30,11 +30,13 @@ $ cd ~ && cd twitter_real_time_pipeline
 $ export AIRFLOW_HOME="$(pwd)"
 # set up python route 
 $ export PYTHONPATH=$(pwd) 
+# modify airflow cfg (not show example DAG at UI)
+# nano unittests.cfg  -> load_examples = False 
+
 # initialize db 
 $ airflow initdb
 ### make sure all jobs files under /dags are without syntax errors ### 
-# not load example dags 
-$ export load_examples=False
+
 # fix  ValueError: unknown locale: UTF-8 in Python (mac OSX)
 $ export LC_ALL=en_US.UTF-8
 $ export LANG=en_US.UTF-8
