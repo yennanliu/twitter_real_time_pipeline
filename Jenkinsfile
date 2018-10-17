@@ -5,3 +5,5 @@ cd twitter_real_time_pipeline
 git branch 
 git status 
 ls -ll 
+git branch 
+git checkout dev1 
