@@ -4,7 +4,7 @@ from airflow.models import DAG
 from datetime import datetime
 
 args = {
-    'owner': 'airflow',
+    'owner': 'yen',
     'start_date': datetime.now(),
 }
 
