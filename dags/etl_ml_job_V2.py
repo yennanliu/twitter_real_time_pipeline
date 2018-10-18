@@ -63,8 +63,10 @@ def train_V2():
 	return prdiction 
 
 
-def save_output(df):
-	df.to_csv('model_output_{}.csv'.format(df))
+def save_output(**context):
+	print ('context : ', context)
+	context_ = context.xcom_pull(task_ids='ML_train_step_1')
+	pd.DataFrame(context_).to_csv('etl_ml_job_V2_output.csv')
 
 
 # -----------------------------------
@@ -74,16 +76,19 @@ with DAG('etl_ml_job_V2', default_args=args) as dag:
     ML_train_step_1 = PythonOperator(
         task_id='train_V1',
         python_callable=train_V1
+        #provide_context=True
         )
 
     ML_train_step_2 = PythonOperator(
         task_id='train_V2',
         python_callable=train_V2
+        #provide_context=True 
         )
 
     save_output_task = PythonOperator(
         task_id='save_output',
         python_callable=save_output
+        #source_objects=["{{ task_instance.xcom_pull(task_ids='ML_train_step_1') }}"]
         )
 
 
