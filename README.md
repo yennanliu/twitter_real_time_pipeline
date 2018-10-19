@@ -4,7 +4,7 @@
 * https://developer.twitter.com/
 
 # Tech
-* Python3, Airflow, Pyspark, twython 
+* Python3, Airflow, Pyspark,tweepy ,twython 
 * SQLite 
 
 
@@ -17,7 +17,15 @@ $ cd ~ && cd twitter_real_time_pipeline
 # get the APP_KEY, APP_SECRET  here :  https://developer.twitter.com/
 $ export APP_KEY=<your_APP_KEY> 
 $ export APP_SECRET=<your_APP_SECRET>
-$ python test.py 
+# batch 
+$ python get_twitter_data_V1
+# stream 
+export access_token=<access_token> 
+export access_token_secret=<access_token_secret> 
+export consumer_key=<your_APP_KEY>  
+export consumer_secret=<your_APP_SECRET>
+$ python get_twitter_data_V2 
+
 ``` 
 
 ```bash 
