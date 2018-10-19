@@ -6,23 +6,33 @@
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
+import os 
+
 
 #Variables that contains the user credentials to access Twitter API 
-access_token = "ENTER YOUR ACCESS TOKEN"
-access_token_secret = "ENTER YOUR ACCESS TOKEN SECRET"
-consumer_key = "ENTER YOUR API KEY"
-consumer_secret = "ENTER YOUR API SECRET"
+# TODO : use .ymal load credentials
+try:
+    access_token = os.environ['access_token']
+    access_token_secret = os.environ['access_token_secret']
+    consumer_key = os.environ['consumer_key']
+    consumer_secret = os.environ['consumer_secret']
+except:
+    print ('='*70)
+    print (' No needed credentials , please set up  via : ')
+    print (' https://developer.twitter.com/en/apps')
+    print ('='*70)
+
 
 
 #This is a basic listener that just prints received tweets to stdout.
 class StdOutListener(StreamListener):
 
     def on_data(self, data):
-        print data
+        print (data)
         return True
 
     def on_error(self, status):
-        print status
+        print (data)
 
 
 if __name__ == '__main__':
