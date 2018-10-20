@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build Image') {
+            steps {
+                script {
+                    docker.build(generateImageName())
+                }
+            }
+        }
+
+        stage ('Push Docker Image') {
+            steps {
+                script {
+                    def dockerImage = docker.image(generateImageName())
+                    dockerImage.push()
+                }
+            }
+        }
+        stage ('Deploy to production') {
+            when { branch 'master' }
+            steps {
+                build job: 'deploy/twitter_etl_env', parameters: [
+                  [$class: 'StringParameterValue', name: 'SERVICE', value: getServiceName()],
+                  [$class: 'StringParameterValue', name: 'VERSION', value: generateTag()]
+                ]
+            }
+        }
+    }
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}
