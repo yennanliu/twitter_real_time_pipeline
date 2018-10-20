@@ -4,8 +4,23 @@
 * https://developer.twitter.com/
 
 # Tech
-* Python3, Airflow, Pyspark,tweepy ,twython 
-* SQLite 
+* ETL 
+	- Python3, Airflow, Pyspark,tweepy ,twython, 
+* DL 
+	- Keras, Tensorflow 
+* DB
+	-SQLite  
+
+# Architecture
+``` 
+# 1) Local 
+python script call Twitter real-time API -> save as txt/Sqlite -> python script read txt/sqlite data as dataframe -> trained RNN emojify model predict with new updated streaming data -> output prediction : response emoji corresponding to twitter message e.g. : input : she said yes |  prediction: she said yes 😄
+
+
+# 2) Cloud 
+# dev 
+
+```
 
 
 # Quick Start
@@ -25,7 +40,7 @@ export access_token_secret=<access_token_secret>
 export consumer_key=<your_APP_KEY>  
 export consumer_secret=<your_APP_SECRET>
 # save to txt 
-$ python get_twitter_data_V2  > > twitter_data.txt 
+$ python get_twitter_data_V2  > twitter_data.txt 
 # open the other terminal and run another python script 
 $ python twitter_data_to_df.py
 ####### output  #######
