@@ -24,7 +24,26 @@ export access_token=<access_token>
 export access_token_secret=<access_token_secret> 
 export consumer_key=<your_APP_KEY>  
 export consumer_secret=<your_APP_SECRET>
-$ python get_twitter_data_V2 
+# save to txt 
+$ python get_twitter_data_V2  > > twitter_data.txt 
+# open the other terminal and run another python script 
+$ python twitter_data_to_df.py
+####### output  #######
+======================================================================
+ twitter df : 
+======================================================================
+                                                  text lang  \
+0    Stets' eyes widen as he realizes the ship is o...   en   
+1    RT @eunice_atuejide: Nnamdi Kalu is a deceitfu...   en   
+2    @bubbyjaney If 'marshmallow version of Harley ...   en   
+3    rubyのメソッド、調べて勉強φ(..)！(ver2.5.0)\nClass  : Nume...   ja   
+4    RT @_Nslhnc: Reims c'est vraiment un autre mon...   fr   
+5    Ça chauffe entre Ruby et Jackson. Ils vont pre...   fr   
+6    RT @Transfanman: Ruby Navarro https://t.co/yr3...   ht   
+7    My dogs name is Ruby. \nI call her:\nRoobs \nR...   en   
+8                                  Don't mind the fool   en   
+9    DAY10\n40分\n\n・JavaScript 学習コース Ⅲ 関数と引数のところだけ\...   ja   
+
 
 ``` 
 
