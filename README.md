@@ -5,11 +5,13 @@
 
 # Tech
 * ETL 
-	- Python3, Airflow, Pyspark,tweepy ,twython, 
+	- Python3, Airflow, Pyspark tweepy ,twython, 
 * DL 
 	- Keras, Tensorflow 
 * DB
-	-SQLite  
+	- SQLite, Bigquery  
+* Others 
+	- Cloud Pub/Sub, Cloud storage 
 
 # Architecture
 ``` 
