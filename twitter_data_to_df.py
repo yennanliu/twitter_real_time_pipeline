@@ -28,6 +28,8 @@ print ('='*70)
 print (' twitter df : ')
 print ('='*70)
 print (tweets)
+print ('save to csv...')
+tweets.to_csv('twitter_data.csv')
 
 
 
