@@ -68,6 +68,15 @@ $ python twitter_data_to_df.py && python twitter_data_to_sqlite.py
 7    My dogs name is Ruby. \nI call her:\nRoobs \nR...   en   
 8                                  Don't mind the fool   en   
 9    DAY10\n40分\n\n・JavaScript 学習コース Ⅲ 関数と引数のところだけ\...   ja   
+...
+                                              source country  
+0  <a href="http://twitter.com/download/iphone" r...     NaN  
+1  <a href="http://twitter.com/download/android" ...     NaN  
+2  <a href="http://www.babynames.com" rel="nofoll...     NaN  
+3  <a href="https://mobile.twitter.com" rel="nofo...     NaN  
+4  <a href="https://mobile.twitter.com" rel="nofo...     NaN  
+insert csv df to sqlite....
+update to DB ok
 
 
 ``` 
