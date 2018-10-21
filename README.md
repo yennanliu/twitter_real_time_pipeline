@@ -28,7 +28,7 @@ python script call Twitter real-time API -> save as txt/Sqlite -> python script 
 # Quick Start
 
 ```bash 
-# ----------- Run the test script  ----------- # 
+# ----------- Run the test script (batch) ----------- # 
 $ git clone https://github.com/yennanliu/twitter_real_time_pipeline.git
 $ cd ~ && cd twitter_real_time_pipeline
 # get the APP_KEY, APP_SECRET  here :  https://developer.twitter.com/
@@ -36,13 +36,20 @@ $ export APP_KEY=<your_APP_KEY>
 $ export APP_SECRET=<your_APP_SECRET>
 # batch 
 $ python get_twitter_data_V1
-# stream 
+
+```
+
+```bash 
+# ----------- Run the test script  (stream) ----------- # 
+$ git clone https://github.com/yennanliu/twitter_real_time_pipeline.git
+$ cd ~ && cd twitter_real_time_pipeline
+# get the APP_KEY, APP_SECRET  here :  https://developer.twitter.com/
 export access_token=<access_token> 
 export access_token_secret=<access_token_secret> 
 export consumer_key=<your_APP_KEY>  
 export consumer_secret=<your_APP_SECRET>
 # save to txt 
-$ python get_twitter_data_V2  > twitter_data.txt 
+$ python get_twitter_data_V2.py  > twitter_data.txt 
 # open the other terminal and run another python script 
 $ python twitter_data_to_df.py
 ####### output  #######
