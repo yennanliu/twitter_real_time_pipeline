@@ -50,7 +50,7 @@ export consumer_key=<your_APP_KEY>
 export consumer_secret=<your_APP_SECRET>
 # save to txt 
 $ python get_twitter_data_V2.py  > twitter_data.txt 
-# open the other terminal and run another python script 
+# open the other terminal and run the following python script 
 $ python twitter_data_to_df.py && python twitter_data_to_sqlite.py
 
 ####### output  #######
