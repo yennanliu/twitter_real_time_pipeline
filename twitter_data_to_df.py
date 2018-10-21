@@ -5,6 +5,14 @@ import pandas as pd
 import json 
 
 
+def fix_text(x):
+    try :
+        return x.split(':')[1].strip(' ')
+    except:
+        return x 
+
+
+
 tweets_data_path = 'twitter_data.txt'
 tweets_data = []
 tweets_file = open(tweets_data_path, "r")
@@ -24,6 +32,8 @@ tweets['created_at'] = list(map(lambda tweet: tweet['created_at'], tweets_data))
 tweets['geo'] = list(map(lambda tweet: tweet['geo'], tweets_data))
 tweets['source'] = list(map(lambda tweet: tweet['source'], tweets_data))
 tweets['country'] = list(map(lambda tweet: tweet['place']['country'] if tweet['place'] != None else None, tweets_data))
+# fix text 
+tweets['text'] =  tweets['text'].apply(fix_text)
 print ('='*70)
 print (' twitter df : ')
 print ('='*70)
