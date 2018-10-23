@@ -1,14 +1,26 @@
 # python 3 
 # http://adilmoujahid.com/posts/2014/07/twitter-analytics/
 
-import pandas as pd 
 import json 
+import re 
+import pandas as pd 
 
 
 def fix_text(x):
+    """
+
+    remove  ‘@’mention
+    https://towardsdatascience.com/another-twitter-sentiment-analysis-bb5b01ebad90
+    
+    """
     try :
+        # remove ' @_userid: ' 
         return x.split(':')[1].strip(' ')
     except:
+        # remove ‘@’mention
+        return re.sub(r'@[A-Za-z0-9]+','',x).strip(' ')
+        # return anything else 
+    else:
         return x 
 
 
