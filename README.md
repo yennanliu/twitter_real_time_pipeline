@@ -1,7 +1,7 @@
 # twitter_real_time_pipeline
 
 
-<img src ="https://github.com/yennanliu/twitter_real_time_pipeline/blob/master/ref/twitter_pipeline.png" width="800" height="400">
+<img src ="https://github.com/yennanliu/twitter_real_time_pipeline/blob/master/ref/twitter_pipeline.png" width="800" height="200">
 
 
 
