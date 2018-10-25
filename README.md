@@ -1,5 +1,10 @@
 # twitter_real_time_pipeline
 
+
+<img src ="https://github.com/yennanliu/twitter_real_time_pipeline/ref/twitter_pipeline.png" width="800" height="400">
+
+
+
 * Collect twitter event data via streaming API and digest/preprocess the data 
 * https://developer.twitter.com/
 
