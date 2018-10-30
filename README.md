@@ -32,27 +32,30 @@ python script call Twitter real-time API -> save as txt/Sqlite -> python script 
 
 # Quick Start
 
+### Local (batch)
+
 ```bash 
-# ----------- Run the test script (batch) ----------- # 
+# ----------- Run the test script (BATCH) ----------- # 
 $ git clone https://github.com/yennanliu/twitter_real_time_pipeline.git
 $ cd ~ && cd twitter_real_time_pipeline
 # get the APP_KEY, APP_SECRET  here :  https://developer.twitter.com/
-$ export APP_KEY=<your_APP_KEY> 
-$ export APP_SECRET=<your_APP_SECRET>
+#$ export APP_KEY=<your_APP_KEY> 
+#$ export APP_SECRET=<your_APP_SECRET>
+$ nano .creds.yml # update .creds.yml with your consumer_key,  consumer_secret
 # batch 
 $ python get_twitter_data_V1
 
 ```
 
+### Local (Stream)
+
 ```bash 
-# ----------- Run the test script  (stream) ----------- # 
+# ----------- Run the test script  (STREAM) ----------- # 
 $ git clone https://github.com/yennanliu/twitter_real_time_pipeline.git
 $ cd ~ && cd twitter_real_time_pipeline
 # get the APP_KEY, APP_SECRET  here :  https://developer.twitter.com/
-export access_token=<access_token> 
-export access_token_secret=<access_token_secret> 
-export consumer_key=<your_APP_KEY>  
-export consumer_secret=<your_APP_SECRET>
+#export access_token=<access_token>  && export access_token_secret=<access_token_secret>  && export consumer_key=<your_APP_KEY>   && export consumer_secret=<your_APP_SECRET>
+$ nano .creds.yml # update .creds.yml with your access_token, access_token_secret....
 # save to txt 
 $ python get_twitter_data_V2.py  > twitter_data.txt 
 # open the other terminal and run the following python script 
@@ -86,6 +89,7 @@ update to DB ok
 
 ``` 
 
+### Local (Aifflow, Batch)
 ```bash 
 # ----------- Run via etl script (airflow)----------- # 
 $ git clone https://github.com/yennanliu/twitter_real_time_pipeline.git
