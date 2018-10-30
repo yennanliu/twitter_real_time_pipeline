@@ -8,8 +8,11 @@ export LANG=en_US.UTF-8
 export AIRFLOW_HOME=$(PWD)
 export PYTHONPATH=$(pwd)
 
-echo 'APP_KEY = '  $APP_KEY
-echo 'APP_SECRET = '  $APP_SECRET
 
-#export APP_KEY=<APP_KEY> 
-#export APP_SECRET=<APP_SECRET> 
+
+#### TODO : airflow quick start : initDB, launch UI, launch scheduler ####
+
+#airflow initdb
+#export load_examples=False
+#airflow webserver -p 8080
+#airflow scheduler
