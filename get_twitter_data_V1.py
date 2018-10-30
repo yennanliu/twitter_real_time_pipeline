@@ -3,14 +3,26 @@
 from twython import Twython
 import time
 import os 
+# UDF 
+from load_creds import * 
 
+
+#----------------------------------------------------
+# config 
 
 try:
+	access_token, access_token_secret, consumer_key, consumer_secret = get_twitter_api_secret() 
+	APP_KEY=consumer_key
+	APP_SECRET=consumer_secret
+
+except:
 	APP_KEY = os.environ['consumer_key']
 	APP_SECRET = os.environ['consumer_secret'] 
-except:
+else:
 	print (' No API key , please set up  via : ')
 	print (' https://developer.twitter.com/en/apps')
+
+#----------------------------------------------------
 
 
 
