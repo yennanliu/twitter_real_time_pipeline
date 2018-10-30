@@ -1,0 +1,9 @@
+# get the twitter API key : https://developer.twitter.com/en/apps')
+
+twitter_api:
+  access_token: '<your_access_token>'
+  access_token_secret: '<your_access_token_secret>'
+  consumer_key: '<your_consumer_key>'
+  consumer_secret: '<your_consumer_secret>'
+  APP_KEY: '<your_APP_KEY>'
+  APP_SECRET: '<your_APP_SECRET>'
