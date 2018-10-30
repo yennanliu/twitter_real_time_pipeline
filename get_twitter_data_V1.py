@@ -6,8 +6,8 @@ import os
 
 
 try:
-	APP_KEY = os.environ['APP_KEY']
-	APP_SECRET = os.environ['APP_SECRET'] 
+	APP_KEY = os.environ['consumer_key']
+	APP_SECRET = os.environ['consumer_secret'] 
 except:
 	print (' No API key , please set up  via : ')
 	print (' https://developer.twitter.com/en/apps')
