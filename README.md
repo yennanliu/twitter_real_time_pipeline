@@ -103,6 +103,9 @@ $ export PYTHONPATH=$(pwd)
 # modify airflow cfg (not show example DAG at UI)
 # nano unittests.cfg  -> load_examples = False 
 
+# where is airflow config
+$ which airflow
+
 # initialize db 
 $ airflow initdb
 ### make sure all jobs files under /dags are without syntax errors ### 
