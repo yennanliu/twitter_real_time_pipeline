@@ -5,14 +5,22 @@
 from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
 from airflow.operators.python_operator import PythonOperator, BranchPythonOperator
-import datetime 
+from airflow.operators.dummy_operator import DummyOperator
+from airflow.models import Variable
+import datetime
+import json  
 
 
 
 args = {
-    'owner': 'yen',
-    'depends_on_past': False,
-    'start_date': datetime.datetime.now()}
+'owner': 'yen',
+'depends_on_past': False,
+'start_date': datetime.datetime.now()}
+
+
+
+def print_table(**kwargs):
+	print ('table name : ', table)
 
 
 """
@@ -40,23 +48,24 @@ sync_config =
 
 """
 
+sync_config = ['ABC','CDE','XYZ']
+#sync_config = Variable.get("sync_config")
 
-sync_config = json.loads(Variable.get("sync_config"))
 
-with dag:
 
-    start = DummyOperator(task_id='Variable_demo_DAG')
 
-    for table in sync_config:
-        d1 = RedshiftToS3Transfer(
-            task_id='{0}'.format(table['s3_key']),
-            table=table['table'],
-            schema=table['schema'],
-            s3_bucket=table['s3_bucket'],
-            s3_key=table['s3_key'],
-            redshift_conn_id=table['redshift_conn_id']
-        )
-        start >> d1
+with DAG('Variable_demo_DAG', default_args=args) as dag:
+
+	start = DummyOperator(task_id='Variable_demo_DAG')
+
+	for table in sync_config:
+		d1 =  PythonOperator(
+		task_id='task__{}'.format(table),
+		python_callable=print_table,
+		provide_context=True)
+
+
+		start >> d1
 
 
 
