@@ -26,7 +26,7 @@ def manipulate_values(**kwargs):
     return [x / 2 for x in v1]
 
 
-with DAG('XComs_Variables_demo_DAG', default_args=args) as dag:
+with DAG('DAG_XComs_demo', default_args=args) as dag:
 
     t1 = PythonOperator(
         task_id='push_values',

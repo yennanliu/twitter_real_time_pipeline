@@ -24,7 +24,7 @@ def my_sleeping_function(random_base):
 
 
 
-with DAG('pass_in_args_func_demo_DAG', default_args=args) as dag:
+with DAG('DAG_pass_in_args_func_demo', default_args=args) as dag:
 	run_this = DummyOperator(task_id='run_this')
 	# Generate 10 sleeping tasks, sleeping from 0 to 4 seconds respectively
 	for i in range(5):

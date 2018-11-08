@@ -30,9 +30,9 @@ def print_table(**kwargs):
 sync_config = ['ABC','CDE','XYZ']
 
 
-with DAG('Variable_demo_DAG', default_args=args) as dag:
+with DAG('DAG_Variable_demo', default_args=args) as dag:
 
-	start = DummyOperator(task_id='Variable_demo_DAG')
+	start = DummyOperator(task_id='DAG_Variable_demo')
 
 	for table in sync_config:
 		d1 =  PythonOperator(
