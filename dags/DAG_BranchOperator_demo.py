@@ -5,7 +5,6 @@
 
 from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
-from airflow.operators.python_operator import PythonOperator
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator, BranchPythonOperator
 from airflow.hooks.postgres_hook import PostgresHook
@@ -15,31 +14,11 @@ import numpy as np
 args = {
 'owner': 'yen',
 'depends_on_past': False,
-'start_date': datetime(2018,11,6)}
+'start_date': datetime(2018,11,6),
+'retries': 1,
+'retry_delay': timedelta(minutes=1)}
 
 
-
-def get_recent_date():
-    """
-    Python function that grabs the latest date from 3 data sources from internal reporting.
-    The rest of the DAG does not execute unless each one has successfully run.
-    """
-
-    bing_date = PostgresHook('astro_redshift').get_pandas_df(
-        """ SELECT max(gregorian_date) FROM dev.aa_bing_ads.conversion;""")['max'][0]
-    google_date = PostgresHook('astro_redshift').get_pandas_df(
-        """ SELECT max(day) FROM dev.aa_google_adwords.cc_search_query_performance_report   ; """)['max'][0]
-    sf_date = PostgresHook('astro_redshift').get_pandas_df(
-        """ SELECT max(created_date) FROM aa_salesforce.sf_lead; """)['max'][0].to_pydatetime().date()
-    # Salesforce is never easy to work with.
-    # Makes sense their API is called simple-salesforce in the same way
-    # the s in SOAP stands for simple.
-
-    yesterday = datetime.today().date() - timedelta(1)
-
-    if yesterday != (bing_date and google_date and sf_date):
-        return 'trigger_warning'
-    return 'kickoff_summary_tables'
 
 
 
@@ -52,6 +31,9 @@ def get_recent_date2():
 	return 'kickoff_summary_tables'
 
 
+
+#def check_for_data():
+#	print (' -------- check for data --------  ') 
 
 
 with DAG(dag_id='DAG_BranchOperator_demo', default_args=args) as dag:
