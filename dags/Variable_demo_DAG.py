@@ -25,33 +25,9 @@ def print_table(**kwargs):
 
 """
 
-define the variable at UI : 
-
-step 1) visit UI for example  : http://localhost:3333/admin/variable/ 
-step 2) 
-sync_config = 
-
-[{
-  "table": "users",
-  "schema":"app_one",
- "s3_bucket":"etl_bucket",
- "s3_key":"app_one_users",
- "redshift_conn_id":"postgres_default" },
- {
-   "table": "users",
-   "schema":"app_two",
- "s3_bucket":"etl_bucket",
- "s3_key":"app_two_users",
- "redshift_conn_id":"postgres_default"}]
-
-
-
 """
 
 sync_config = ['ABC','CDE','XYZ']
-#sync_config = Variable.get("sync_config")
-
-
 
 
 with DAG('Variable_demo_DAG', default_args=args) as dag:
@@ -61,22 +37,14 @@ with DAG('Variable_demo_DAG', default_args=args) as dag:
 	for table in sync_config:
 		d1 =  PythonOperator(
 		task_id='task__{}'.format(table),
-		python_callable=print_table,
-		provide_context=True)
+		python_callable=print_table,	
+		#pass args into python func 
+		#https://airflow.readthedocs.io/en/latest/howto/operator.html	
+		op_kwargs={'table': str(table)},
+		provide_context=True, )
 
 
 		start >> d1
-
-
-
-
-
-
-
-
-
-
-
 
 
 
