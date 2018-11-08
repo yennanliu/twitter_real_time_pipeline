@@ -1,14 +1,9 @@
-# USEFUL PYTEST INFORMATION
+# Pytest Intro
 
 
-## Unit-test Intro
+## Unit-test 
 - dev 
-
-
-## PYTEST Intro
-- dev 
-
-
+- example 
 ```python 
 
 import pytest 
@@ -16,12 +11,18 @@ import pytest
 def mytest():
 	x = 7 
 	assert x ==0 
-	
+
 
 ```
 
 
-## fixture scope 
+## fixture scope
+
+- function：run every test once. defailt : function scope
+- class： run all test once in the class 
+- module：run all test once in the module  
+- session：only run each session once
+- example 
 
 ```python 
 
@@ -33,10 +34,8 @@ def mod_header(request):
 
 ```
 
-- function：run every test once. defailt : function scope
-- class： run all test once in the class 
-- module：run all test once in the module  
-- session：only run each session once
+## Mock 
+
 
 
 
