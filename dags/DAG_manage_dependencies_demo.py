@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+
 # python3
 # airflow managing-dependencies
 # https://www.astronomer.io/guides/managing-dependencies/
@@ -10,6 +11,7 @@ from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator, \
     BranchPythonOperator
 from airflow.utils.trigger_rule import TriggerRule
+from airflow.operators.latest_only_operator import LatestOnlyOperator
 from datetime import datetime, timedelta, time
 import numpy as np
 
@@ -51,11 +53,15 @@ with DAG(dag_id='DAG_manage_dependencies_demo', default_args=args) as \
     # branch >> d2 >> (d3, d4)
     # branch  >> [d3, d4]
 
-    job_info = [{'job_name': 'train_model', 'brittle': True},
-                {'job_name': 'execute_query', 'brittle': False}]
+    job_info = [{'job_name': 'train_model', 'brittle': True,'latest_only': True}, 
+                {'job_name': 'execute_query','brittle': False, 'latest_only': False}]
 
     for job in job_info:
+
+        start = DummyOperator(task_id='kick_off_dag')
         d5 = DummyOperator(task_id=job['job_name'])
+
+        # final_output = DummyOperator(task_id='final_output')
 
         # Generate a task based on a condition
 
@@ -66,12 +72,22 @@ with DAG(dag_id='DAG_manage_dependencies_demo', default_args=args) as \
                                 provide_context=True,
                                 trigger_rule=TriggerRule.ONE_FAILED)
             d5 >> d6
+        start >> d5
+
+        if job['latest_only']:
+            latest_only = \
+                LatestOnlyOperator(task_id='latest_only_{0}'.format(job['job_name'
+                                   ]))
+            d5 >> latest_only
+
         for i in range(0, 5):
             downstream = \
                 DummyOperator(task_id='{0}_{1}'.format(job['job_name'],
                               i))
 
-            d5 >> downstream
+            if job['latest_only']:
+                latest_only >> downstream
+            else:
+                d5 >> downstream
 
 
-			
