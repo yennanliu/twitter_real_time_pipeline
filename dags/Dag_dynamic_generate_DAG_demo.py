@@ -32,7 +32,7 @@ def create_dag(dag_id,
 
 # build a dag for each number in range(10)
 for n in range(1, 10):
-    dag_id = 'Dag_dynamic_generate_DAG_demo_HELLOWORLD_{}'.format(str(n))
+    dag_id = 'DAG_dynamic_generate_DAG_demo_HELLOWORLD_{}'.format(str(n))
 
     args = {'owner': 'yen',
             'start_date': datetime(2018, 1, 1)}
