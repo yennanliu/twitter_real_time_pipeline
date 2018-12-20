@@ -9,15 +9,13 @@
 #
 ################################################################################################
 
-
+# op 
 import tweepy
 from tweepy import OAuthHandler
 from tweepy import Stream
 from tweepy.streaming import StreamListener
 import socket
 import json
-
-
 import os 
 # UDF 
 from load_creds import * 
