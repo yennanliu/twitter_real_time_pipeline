@@ -32,7 +32,25 @@ python script call Twitter real-time API -> save as txt/Sqlite -> python script 
 
 # Quick Start
 
-### Local (batch)
+
+### Local (batch) (via spark stream api)
+```bash 
+# ----------- Run the test script (BATCH) ----------- # 
+$ git clone https://github.com/yennanliu/twitter_real_time_pipeline.git
+$ cd ~ && cd twitter_real_time_pipeline
+# get the APP_KEY, APP_SECRET  here :  https://developer.twitter.com/
+#$ export APP_KEY=<your_APP_KEY> 
+#$ export APP_SECRET=<your_APP_SECRET>
+$ nano .creds.yml # update .creds.yml with your consumer_key,  consumer_secret
+# run a server listen twitter stream  
+$ python TweetRead.py
+# run spark script streaming twitter data (open the other terminal)
+$ export SPARK_HOME=/Users/$USER/spark && export PATH=$SPARK_HOME/bin:$PATH && spark-submit twitter_spark_streaming.py 
+
+```
+
+
+### Local (batch) (via twitter stream api)
 
 ```bash 
 # ----------- Run the test script (BATCH) ----------- # 
@@ -46,6 +64,7 @@ $ nano .creds.yml # update .creds.yml with your consumer_key,  consumer_secret
 $ python get_twitter_data_V1
 
 ```
+
 
 ### Local (Stream)
 
