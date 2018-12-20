@@ -1,3 +1,15 @@
+################################################################################################
+#
+#
+#
+# ref 
+# https://www.udemy.com/join/login-popup/?next=/spark-and-python-for-big-data-with-pyspark/learn/v4/t/lecture/7047216%3Fstart%3D570
+#
+#
+#
+################################################################################################
+
+
 import tweepy
 from tweepy import OAuthHandler
 from tweepy import Stream
