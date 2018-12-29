@@ -33,40 +33,67 @@ python script call Twitter real-time API -> save as txt/Sqlite -> python script 
 # Quick Start
 
 
-### Local (batch) (via spark stream api)
+### Local (Streaming) (via Spark stream api)
 ```bash 
 # ----------- Run the test script (BATCH) ----------- # 
 $ git clone https://github.com/yennanliu/twitter_real_time_pipeline.git
 $ cd ~ && cd twitter_real_time_pipeline
 # get the APP_KEY, APP_SECRET  here :  https://developer.twitter.com/
-#$ export APP_KEY=<your_APP_KEY> 
-#$ export APP_SECRET=<your_APP_SECRET>
+#$ export APP_KEY=<your_APP_KEY>  &&  export APP_SECRET=<your_APP_SECRET>
 $ nano .creds.yml # update .creds.yml with your consumer_key,  consumer_secret
 # run a server listen twitter stream  
 $ python TweetRead.py
 # run spark script streaming twitter data (open the other terminal)
-$ export SPARK_HOME=/Users/$USER/spark && export PATH=$SPARK_HOME/bin:$PATH && spark-submit twitter_spark_streaming.py 
+$ export SPARK_HOME=/Users/$USER/spark && export PATH=$SPARK_HOME/bin:$PATH && spark-submit twitter_spark_streaming2.py 
+
+# response 
+
+-------------------------------------------
+Time: 2018-12-29 11:25:10
+-------------------------------------------
+('beach', 1)
+('Fri…', 1)
+('Ball', 1)
+('It’s', 1)
+('new', 1)
+('super', 1)
+('What', 2)
+('A."', 1)
+('exemplifies', 1)
+('http…IPU環太平洋大学の平松遼太郎がFC今治に入団', 1)
+...
+
+========= 2018-12-29 11:25:10 =========
++--------------------+-----+
+|                word|total|
++--------------------+-----+
+|             “clash”|    1|
+|                some|    1|
+|https://t.co/z3gw...|    1|
+|                It’s|    1|
+|                 two|    1|
+|                rich|    1|
+|                 I'd|    1|
+|              "Lazio|    1|
+|          “activist”|    1|
+|                hell|    2|
+|                 put|    1|
+|【朗報】サッカー日本代表のスタメン...|    1|
+|                moms|    1|
+|          “Far-right|    2|
+|                 you|    1|
+|          everything|    1|
+|                 new|    1|
+|         nationalist|    1|
+|               mean,|    1|
+|             Torino"|    1|
++--------------------+-----+
+only showing top 20 rows
 
 ```
 
 
-### Local (batch) (via twitter stream api)
-
-```bash 
-# ----------- Run the test script (BATCH) ----------- # 
-$ git clone https://github.com/yennanliu/twitter_real_time_pipeline.git
-$ cd ~ && cd twitter_real_time_pipeline
-# get the APP_KEY, APP_SECRET  here :  https://developer.twitter.com/
-#$ export APP_KEY=<your_APP_KEY> 
-#$ export APP_SECRET=<your_APP_SECRET>
-$ nano .creds.yml # update .creds.yml with your consumer_key,  consumer_secret
-# batch 
-$ python get_twitter_data_V1
-
-```
-
-
-### Local (Stream)
+### Local (Streaming) (via Twitter stream api)
 
 ```bash 
 # ----------- Run the test script  (STREAM) ----------- # 
